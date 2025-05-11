@@ -1,0 +1,30 @@
+/* Card Component Styles */
+
+.ds-card {
+  background-color: var(--card-background);
+  border-radius: var(--card-border-radius);
+  border: var(--card-border);
+  padding: var(--card-padding);
+  box-shadow: var(--card-shadow);
+  transition: var(--card-transition);
+}
+
+.ds-card--hoverable:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: var(--card-hover-transform);
+}
+
+.ds-card--clickable {
+  cursor: pointer;
+}
+
+.ds-card__header {
+  font-size: var(--card-header-font-size);
+  font-weight: var(--card-header-font-weight);
+  margin-bottom: var(--card-header-margin-bottom);
+  color: var(--card-header-color);
+}
+
+.ds-card__body {
+  color: var(--card-body-color);
+}

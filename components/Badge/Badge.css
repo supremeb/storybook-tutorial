@@ -1,0 +1,44 @@
+/* Badge Component Styles */
+
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--badge-border-radius);
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Badge Variants */
+.ds-badge--primary {
+  background-color: var(--badge-primary-background);
+  color: var(--badge-primary-color);
+}
+
+.ds-badge--secondary {
+  background-color: var(--badge-secondary-background);
+  color: var(--badge-secondary-color);
+}
+
+.ds-badge--success {
+  background-color: var(--badge-success-background);
+  color: var(--badge-success-color);
+}
+
+.ds-badge--warning {
+  background-color: var(--badge-warning-background);
+  color: var(--badge-warning-color);
+}
+
+.ds-badge--error {
+  background-color: var(--badge-error-background);
+  color: var(--badge-error-color);
+}
+
+.ds-badge--info {
+  background-color: var(--badge-info-background);
+  color: var(--badge-info-color);
+}

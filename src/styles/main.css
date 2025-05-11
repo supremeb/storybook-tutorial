@@ -1,0 +1,269 @@
+/**
+ * Design System - Main Stylesheet
+ * ==============================
+ * 
+ * This is the main stylesheet for the design system. It imports the design tokens
+ * and applies them to base HTML elements to create a consistent foundation.
+ * 
+ * STRUCTURE:
+ * 1. Imports: Design tokens and other stylesheets
+ * 2. Global Resets: Basic resets for consistent rendering
+ * 3. Base Elements: Styling for HTML elements
+ * 4. Utility Classes: Helper classes for common patterns
+ * 
+ * HOW TO USE:
+ * - Import this file in your application to apply the design system
+ * - Use the utility classes for layout and spacing
+ * - Extend with component-specific styles as needed
+ */
+
+/* ========================================
+ * 1. IMPORTS
+ * ======================================== */
+
+/* Import design tokens */
+@import './tokens.css';
+
+/* ========================================
+ * 2. GLOBAL RESETS
+ * ======================================== */
+
+/**
+ * Box Sizing Reset
+ * 
+ * Apply border-box to all elements for more predictable sizing.
+ * This ensures padding and borders are included in element width calculations.
+ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/**
+ * Base Element Reset
+ * 
+ * Remove default margins and paddings to create a clean foundation.
+ */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility Utilities */
+
+/* 
+ * Screen Reader Only
+ * Visually hide content while keeping it accessible to screen readers
+ * Use for content that should be announced by screen readers but not visible
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ========================================
+ * 3. BASE ELEMENTS
+ * ======================================== */
+
+/**
+ * Typography
+ * 
+ * Apply consistent typography styles to headings, paragraphs, and links.
+ * These styles establish the typographic hierarchy for the design system.
+ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);  /* 48px */
+  letter-spacing: -0.025em;          /* Tighter tracking for large headings */
+}
+
+h2 {
+  font-size: var(--font-size-4xl);  /* 36px */
+  letter-spacing: -0.0125em;         /* Slightly tighter tracking */
+}
+
+h3 {
+  font-size: var(--font-size-3xl);  /* 30px */
+}
+
+h4 {
+  font-size: var(--font-size-2xl);  /* 24px */
+}
+
+h5 {
+  font-size: var(--font-size-xl);   /* 20px */
+}
+
+h6 {
+  font-size: var(--font-size-lg);   /* 18px */
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-md);    /* 16px */
+  line-height: var(--line-height-normal);
+}
+
+/* Links */
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: var(--border-width-thin) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-6);
+}
+
+li {
+  margin-bottom: var(--spacing-2);
+}
+
+/* ========================================
+ * 4. UTILITY CLASSES
+ * ======================================== */
+
+/**
+ * Layout Utilities
+ * 
+ * Helper classes for common layout patterns.
+ * These utilities make it easy to create consistent layouts across the application.
+ */
+
+/* Container - Centered content with max width */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+/* Container sizes */
+.container-sm {
+  max-width: 640px;
+}
+
+.container-md {
+  max-width: 768px;
+}
+
+.container-lg {
+  max-width: 1024px;
+}
+
+.container-xl {
+  max-width: 1280px;
+}
+
+/* Flexbox row/column system */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--spacing-2));
+}
+
+.col {
+  flex: 1 0 0%;
+  padding: 0 var(--spacing-2);
+}
+
+/* Spacing utilities */
+.m-0 { margin: var(--spacing-0); }
+.m-1 { margin: var(--spacing-1); }
+.m-2 { margin: var(--spacing-2); }
+.m-4 { margin: var(--spacing-4); }
+.m-6 { margin: var(--spacing-6); }
+.m-8 { margin: var(--spacing-8); }
+
+.mt-0 { margin-top: var(--spacing-0); }
+.mt-1 { margin-top: var(--spacing-1); }
+.mt-2 { margin-top: var(--spacing-2); }
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-6 { margin-top: var(--spacing-6); }
+.mt-8 { margin-top: var(--spacing-8); }
+
+.mb-0 { margin-bottom: var(--spacing-0); }
+.mb-1 { margin-bottom: var(--spacing-1); }
+.mb-2 { margin-bottom: var(--spacing-2); }
+.mb-4 { margin-bottom: var(--spacing-4); }
+.mb-6 { margin-bottom: var(--spacing-6); }
+.mb-8 { margin-bottom: var(--spacing-8); }
+
+.p-0 { padding: var(--spacing-0); }
+.p-1 { padding: var(--spacing-1); }
+.p-2 { padding: var(--spacing-2); }
+.p-4 { padding: var(--spacing-4); }
+.p-6 { padding: var(--spacing-6); }
+.p-8 { padding: var(--spacing-8); }
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-sm { font-size: var(--font-size-sm); }
+.text-md { font-size: var(--font-size-md); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+
+.text-normal { font-weight: var(--font-weight-normal); }
+.text-medium { font-weight: var(--font-weight-medium); }
+.text-semibold { font-weight: var(--font-weight-semibold); }
+.text-bold { font-weight: var(--font-weight-bold); }
+
+/* Display utilities */
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-none { display: none; }
+
+/* Flex utilities */
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }

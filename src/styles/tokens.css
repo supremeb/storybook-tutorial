@@ -1,0 +1,605 @@
+/**
+ * Design System Tokens
+ * =================
+ * 
+ * This file defines the design language for our application using CSS custom properties (variables).
+ * 
+ * STRUCTURE:
+ * 1. Base/Primitive Tokens: Raw values like colors, spacing units
+ * 2. Semantic Tokens: Meaningful names that reference primitive tokens
+ * 3. Component Tokens: Component-specific variables that reference semantic tokens
+ * 
+ * HOW TO USE:
+ * - In component CSS: var(--token-name)
+ * - Example: color: var(--color-text-primary);
+ * 
+ * HOW TO EXTEND:
+ * 1. Add new primitive tokens if needed
+ * 2. Create semantic tokens that reference primitives
+ * 3. Create component tokens that reference semantic tokens
+ * 
+ * This layered approach allows for easy theming and consistent design across the application.
+ */
+
+:root {
+  /*=============================================
+   * 1. BASE/PRIMITIVE TOKENS
+   *=============================================*/
+  
+  /**
+   * Color - Base
+   * 
+   * These are the raw color values that form our color palette.
+   * Each color has 10 shades (50-900) for flexibility.
+   * 
+   * Usage: These should rarely be used directly. Instead, use semantic color tokens.
+   */
+  --color-blue-50: #E6F0FF;  /* Lightest blue, good for subtle backgrounds */
+  --color-blue-100: #CCE0FF;
+  --color-blue-200: #99C2FF;
+  --color-blue-300: #66A3FF;
+  --color-blue-400: #3385FF;
+  --color-blue-500: #0066FF;  /* Primary blue, brand color */
+  --color-blue-600: #0052CC;
+  --color-blue-700: #003D99;  /* Darker blue for hover states */
+  --color-blue-800: #002966;
+  --color-blue-900: #001433;  /* Darkest blue, high contrast */
+
+  --color-purple-50: #F2E6FF;  /* Lightest purple */
+  --color-purple-100: #E5CCFF;
+  --color-purple-200: #CC99FF;
+  --color-purple-300: #B266FF;
+  --color-purple-400: #9933FF;
+  --color-purple-500: #7F00FF;  /* Primary purple, secondary brand color */
+  --color-purple-600: #6600CC;
+  --color-purple-700: #4C0099;  /* Darker purple for hover states */
+  --color-purple-800: #330066;
+  --color-purple-900: #190033;  /* Darkest purple */
+
+  --color-gray-50: #F8F9FA;   /* Lightest gray, subtle backgrounds */
+  --color-gray-100: #F1F3F5;  /* Light gray, secondary backgrounds */
+  --color-gray-200: #E9ECEF;  /* Light gray, tertiary backgrounds */
+  --color-gray-300: #DEE2E6;  /* Border light */
+  --color-gray-400: #CED4DA;  /* Border default */
+  --color-gray-500: #ADB5BD;  /* Muted text */
+  --color-gray-600: #868E96;  /* Secondary text */
+  --color-gray-700: #495057;  /* Primary text */
+  --color-gray-800: #343A40;  /* Headings */
+  --color-gray-900: #212529;  /* Darkest gray, high contrast text */
+
+  /* Status colors for feedback, alerts, etc. */
+  --color-success: #0E6E2F;  /* Dark Green: success, completion, positive actions */
+  --color-warning: #856600;  /* Dark Yellow: warnings, pending states - darkened for better contrast */
+  --color-error: #B02A37;    /* Dark Red: errors, destructive actions */
+  --color-info: #0A7A8B;     /* Dark Teal: informational messages */
+  
+  /* Original status colors - kept for reference */
+  --color-success-original: #28A745;  /* Original Green */
+  --color-warning-original: #FFC107;  /* Original Yellow */
+  --color-error-original: #DC3545;    /* Original Red */
+  --color-info-original: #17A2B8;     /* Original Teal */
+  
+  /* Basic colors */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-transparent: transparent;
+
+  /**
+   * Typography - Base
+   * 
+   * Foundational typography settings including font families, sizes, weights, and line heights.
+   * Font sizes follow an exponential scale for better visual hierarchy.
+   */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  
+  /* Font sizes - Using a type scale with 1rem (16px) as the base */
+  --font-size-xs: 0.75rem;   /* 12px - Small labels, footnotes */
+  --font-size-sm: 0.875rem;  /* 14px - Secondary text, captions */
+  --font-size-md: 1rem;      /* 16px - Base body text */
+  --font-size-lg: 1.125rem;  /* 18px - Large body text */
+  --font-size-xl: 1.25rem;   /* 20px - Subheadings */
+  --font-size-2xl: 1.5rem;   /* 24px - H3 headings */
+  --font-size-3xl: 1.875rem; /* 30px - H2 headings */
+  --font-size-4xl: 2.25rem;  /* 36px - H1 headings */
+  --font-size-5xl: 3rem;     /* 48px - Hero headings */
+  
+  /* Font weights */
+  --font-weight-normal: 400;    /* Regular text */
+  --font-weight-medium: 500;    /* Slightly emphasized text */
+  --font-weight-semibold: 600;  /* Subheadings, buttons */
+  --font-weight-bold: 700;      /* Headings, important text */
+  
+  /* Line heights - Proportional to maintain readability */
+  --line-height-none: 1;         /* Headings, single-line text */
+  --line-height-tight: 1.25;     /* Headings with multiple lines */
+  --line-height-snug: 1.375;     /* Short paragraphs */
+  --line-height-normal: 1.5;     /* Body text, optimal for readability */
+  --line-height-relaxed: 1.625;  /* Longer paragraphs */
+  --line-height-loose: 2;        /* Very spacious text */
+  
+  /**
+   * Spacing - Base
+   * 
+   * Consistent spacing values following a 4px grid system (0.25rem).
+   * Use these for margins, paddings, gaps, and positioning.
+   */
+  --spacing-0: 0;              /* No spacing */
+  --spacing-1: 0.25rem;        /* 4px - Tiny spacing */
+  --spacing-2: 0.5rem;         /* 8px - Extra small spacing */
+  --spacing-3: 0.75rem;        /* 12px - Small spacing */
+  --spacing-4: 1rem;           /* 16px - Base spacing */
+  --spacing-5: 1.25rem;        /* 20px - Medium spacing */
+  --spacing-6: 1.5rem;         /* 24px - Medium-large spacing */
+  --spacing-8: 2rem;           /* 32px - Large spacing */
+  --spacing-10: 2.5rem;        /* 40px - Extra large spacing */
+  --spacing-12: 3rem;          /* 48px - 2x base spacing */
+  --spacing-16: 4rem;          /* 64px - 4x base spacing */
+  --spacing-20: 5rem;          /* 80px - 5x base spacing */
+  --spacing-24: 6rem;          /* 96px - 6x base spacing */
+  --spacing-32: 8rem;          /* 128px - 8x base spacing */
+  
+  /**
+   * Borders - Base
+   * 
+   * Border radius and width values for consistent UI elements.
+   */
+  --border-radius-none: 0;         /* Square corners */
+  --border-radius-sm: 0.125rem;    /* 2px - Subtle rounding */
+  --border-radius-md: 0.25rem;     /* 4px - Standard rounding for buttons, cards */
+  --border-radius-lg: 0.5rem;      /* 8px - More pronounced rounding */
+  --border-radius-xl: 0.75rem;     /* 12px - Significant rounding */
+  --border-radius-full: 9999px;    /* Fully rounded, for pills, avatars */
+  
+  --border-width-none: 0;          /* No border */
+  --border-width-thin: 1px;        /* Standard border */
+  --border-width-thick: 2px;       /* Emphasized border, focus states */
+  
+  /**
+   * Shadows - Base
+   * 
+   * Box shadow values for elevation and depth.
+   * Increasing size indicates higher elevation from the surface.
+   */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);                                                  /* Subtle shadow */
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);          /* Medium shadow */
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);        /* Large shadow */
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);      /* Extra large shadow */
+  
+  /**
+   * Z-index - Base
+   * 
+   * Z-index values for controlling stacking order of elements.
+   * Higher values appear on top of lower values.
+   */
+  --z-index-0: 0;           /* Base level, default stacking context */
+  --z-index-10: 10;         /* Low-level elements (e.g., hover states) */
+  --z-index-20: 20;         /* Mid-level elements (e.g., dropdowns) */
+  --z-index-30: 30;         /* High-level elements (e.g., sticky headers) */
+  --z-index-40: 40;         /* Very high-level elements (e.g., tooltips) */
+  --z-index-50: 50;         /* Top-level elements (e.g., modals) */
+  --z-index-auto: auto;     /* Default browser stacking */
+  
+  /*=============================================
+   * 2. SEMANTIC TOKENS
+   *=============================================*/
+  
+  /**
+   * Semantic Colors
+   * 
+   * These tokens provide meaningful names for colors based on their usage.
+   * They reference the base color tokens, creating a layer of abstraction.
+   */
+  
+  /* Brand colors */
+  --color-brand-primary: var(--color-blue-500);         /* Main brand color */
+  --color-brand-primary-light: var(--color-blue-300);   /* Lighter version of brand color */
+  --color-brand-primary-dark: var(--color-blue-700);    /* Darker version of brand color */
+  --color-brand-secondary: var(--color-purple-500);     /* Secondary brand color */
+  --color-brand-secondary-light: var(--color-purple-300); /* Lighter version of secondary color */
+  --color-brand-secondary-dark: var(--color-purple-700);  /* Darker version of secondary color */
+
+  /* Text colors */
+  --color-text-primary: var(--color-gray-900);        /* Main text color for headings, body text */
+  --color-text-secondary: var(--color-gray-700);      /* Secondary text, less emphasis */
+  --color-text-tertiary: var(--color-gray-500);       /* Tertiary text, least emphasis */
+  --color-text-disabled: var(--color-gray-400);       /* Disabled text */
+  --color-text-inverse: var(--color-white);           /* Text on dark backgrounds */
+  --color-text-link: var(--color-blue-600);           /* Hyperlink text */
+  --color-text-link-hover: var(--color-blue-700);     /* Hyperlink text on hover */
+
+  /* Background colors */
+  --color-background-primary: var(--color-white);          /* Main background color */
+  --color-background-secondary: var(--color-gray-50);      /* Secondary background, subtle contrast */
+  --color-background-tertiary: var(--color-gray-100);      /* Tertiary background, more contrast */
+  --color-background-inverse: var(--color-gray-900);       /* Dark background for contrast */
+  --color-background-brand: var(--color-blue-500);         /* Brand-colored background */
+  --color-background-brand-light: var(--color-blue-50);    /* Light brand-colored background */
+
+  /* Border colors */
+  --color-border-light: var(--color-gray-200);        /* Light borders, subtle separation */
+  --color-border-default: var(--color-gray-300);      /* Default borders */
+  --color-border-dark: var(--color-gray-400);         /* Darker borders, more emphasis */
+  --color-border-focus: var(--color-blue-400);        /* Focus state borders */
+
+  /* Status colors */
+  --color-status-success: var(--color-success);                 /* Success messages and indicators */
+  --color-status-success-light: #E6F4EA;                    /* Light background for success states */
+  --color-status-warning: var(--color-warning);             /* Warning messages and indicators */
+  --color-focus: var(--color-blue-500);                     /* Focus state for accessibility */
+  --color-status-warning-light: #FFF8E6;                    /* Light background for warning states */
+  --color-status-error: var(--color-error);                 /* Error messages and indicators */
+  --color-status-error-light: #FBECEC;                      /* Light background for error states */
+  --color-status-info: var(--color-info);                   /* Informational messages and indicators */
+  --color-status-info-light: #E6F6F9;                       /* Light background for info states */
+
+  /*=============================================
+   * 3. COMPONENT TOKENS
+   *=============================================*/
+  
+  /**
+   * Button Component Tokens
+   * 
+   * These tokens define the visual properties of buttons.
+   * They reference semantic tokens to maintain consistency.
+   */
+  
+  /* Common button properties */
+  --button-border-radius: var(--border-radius-md);        /* Standard button corner rounding */
+  --button-font-weight: var(--font-weight-semibold);      /* Button text weight */
+  --button-transition: all 0.2s ease-in-out;              /* Smooth transitions for hover/active states */
+  
+  /* Button size variants */
+  --button-size-sm-font-size: var(--font-size-sm);        /* Small button text size */
+  --button-size-sm-padding: var(--spacing-1) var(--spacing-3); /* Small button padding */
+  --button-size-sm-height: 32px;                          /* Small button fixed height */
+  
+  --button-size-md-font-size: var(--font-size-md);        /* Medium button text size */
+  --button-size-md-padding: var(--spacing-2) var(--spacing-4); /* Medium button padding */
+  --button-size-md-height: 40px;                          /* Medium button fixed height */
+  
+  --button-size-lg-font-size: var(--font-size-md);        /* Large button text size */
+  --button-size-lg-padding: var(--spacing-3) var(--spacing-6); /* Large button padding */
+  --button-size-lg-height: 48px;                          /* Large button fixed height */
+  
+  /* Primary button - Main call-to-action */
+  --button-primary-background: var(--color-brand-primary);     /* Background color */
+  --button-primary-color: var(--color-text-inverse);           /* Text color */
+  --button-primary-border: none;                               /* No border */
+  --button-primary-hover-background: var(--color-brand-primary-dark);  /* Darker on hover */
+  --button-primary-active-background: var(--color-brand-primary-dark); /* Same as hover when active */
+  --button-primary-disabled-background: var(--color-blue-50);  /* Light blue when disabled */
+  --button-primary-disabled-color: var(--color-gray-600);      /* Muted text when disabled */
+  
+  /* Secondary button - Alternative action */
+  --button-secondary-background: transparent;                  /* Transparent background */
+  --button-secondary-color: var(--color-brand-primary);        /* Brand color text */
+  --button-secondary-border: var(--border-width-thin) solid var(--color-brand-primary); /* Brand color border */
+  --button-secondary-hover-background: var(--color-background-brand-light); /* Light brand background on hover */
+  --button-secondary-active-background: var(--color-background-brand-light); /* Same as hover when active */
+  --button-secondary-disabled-background: transparent;         /* Still transparent when disabled */
+  --button-secondary-disabled-color: var(--color-text-disabled); /* Muted text when disabled */
+  
+  /* Tertiary button - Least emphasis */
+  --button-tertiary-background: transparent;                   /* Transparent background */
+  --button-tertiary-color: var(--color-text-primary);          /* Regular text color */
+  --button-tertiary-border: none;                              /* No border */
+  --button-tertiary-hover-background: var(--color-gray-200);   /* Light gray background on hover */
+  --button-tertiary-active-background: var(--color-gray-200);  /* Same as hover when active */
+  --button-tertiary-disabled-background: transparent;          /* Still transparent when disabled */
+  --button-tertiary-disabled-color: var(--color-text-disabled); /* Muted text when disabled */
+  
+  /* Danger button - Destructive actions */
+  --button-danger-background: var(--color-status-error);       /* Error color background */
+  --button-danger-color: var(--color-text-inverse);            /* White text */
+  --button-danger-border: none;                                /* No border */
+  --button-danger-hover-background: #C82333;                   /* Darker red on hover */
+  --button-danger-active-background: #BD2130;                  /* Even darker red when active */
+  --button-danger-disabled-background: var(--color-status-error-light); /* Light red when disabled */
+  --button-danger-disabled-color: var(--color-text-disabled);  /* Muted text when disabled */
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --spacing-40: 10rem;
+  --spacing-48: 12rem;
+  --spacing-56: 14rem;
+  --spacing-64: 16rem;
+
+  /* Spacing - Semantic */
+  --spacing-component-xxs: var(--spacing-1);
+  --spacing-component-xs: var(--spacing-2);
+  --spacing-component-sm: var(--spacing-3);
+  --spacing-component-md: var(--spacing-4);
+  --spacing-component-lg: var(--spacing-6);
+  --spacing-component-xl: var(--spacing-8);
+  --spacing-component-xxl: var(--spacing-12);
+
+  /* Borders */
+  --border-width-none: 0;
+  --border-width-thin: 1px;
+  --border-width-thick: 2px;
+  --border-width-thicker: 4px;
+
+  --border-radius-none: 0;
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 0.75rem;
+  --border-radius-2xl: 1rem;
+  --border-radius-3xl: 1.5rem;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Z-index */
+  --z-index-hide: -1;
+  --z-index-auto: auto;
+  --z-index-base: 0;
+  --z-index-docked: 10;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1100;
+  --z-index-banner: 1200;
+  --z-index-overlay: 1300;
+  --z-index-modal: 1400;
+  --z-index-popover: 1500;
+  --z-index-skipLink: 1600;
+  --z-index-toast: 1700;
+  --z-index-tooltip: 1800;
+
+  /* Transitions */
+  --transition-default: all 0.2s ease-in-out;
+  --transition-fast: all 0.1s ease-in-out;
+  --transition-slow: all 0.3s ease-in-out;
+
+  /* Component Specific Tokens */
+  /* Button */
+  --button-border-radius: var(--border-radius-md);
+  --button-font-weight: var(--font-weight-semibold);
+  --button-transition: var(--transition-default);
+  
+  --button-size-sm-font-size: var(--font-size-sm);
+  --button-size-sm-padding: var(--spacing-component-xxs) var(--spacing-component-sm);
+  --button-size-sm-height: 32px;
+  
+  --button-size-md-font-size: var(--font-size-md);
+  --button-size-md-padding: var(--spacing-component-xs) var(--spacing-component-md);
+  --button-size-md-height: 40px;
+  
+  --button-size-lg-font-size: var(--font-size-md);
+  --button-size-lg-padding: var(--spacing-component-sm) var(--spacing-component-lg);
+  --button-size-lg-height: 48px;
+  
+  --button-primary-background: var(--color-brand-primary);
+  --button-primary-color: var(--color-text-inverse);
+  --button-primary-border: none;
+  --button-primary-hover-background: var(--color-brand-primary-dark);
+  --button-primary-active-background: var(--color-brand-primary-dark);
+  --button-primary-disabled-background: var(--color-status-info-light);
+  --button-primary-disabled-color: var(--color-text-disabled);
+  
+  --button-secondary-background: transparent;
+  --button-secondary-color: var(--color-brand-primary);
+  --button-secondary-border: var(--border-width-thin) solid var(--color-brand-primary);
+  --button-secondary-hover-background: var(--color-background-brand-light);
+  --button-secondary-active-background: var(--color-background-brand-light);
+  --button-secondary-disabled-background: transparent;
+  --button-secondary-disabled-color: var(--color-text-disabled);
+  --button-secondary-disabled-border: var(--border-width-thin) solid var(--color-border-light);
+  
+  --button-tertiary-background: transparent;
+  --button-tertiary-color: var(--color-text-primary);
+  --button-tertiary-border: none;
+  --button-tertiary-hover-background: var(--color-background-tertiary);
+  --button-tertiary-active-background: var(--color-background-tertiary);
+  --button-tertiary-disabled-background: transparent;
+  --button-tertiary-disabled-color: var(--color-text-disabled);
+  
+  --button-danger-background: var(--color-status-error);
+  --button-danger-color: var(--color-text-inverse);
+  --button-danger-border: none;
+  --button-danger-hover-background: #C82333;
+  --button-danger-active-background: #BD2130;
+  --button-danger-disabled-background: var(--color-status-error-light);
+  --button-danger-disabled-color: var(--color-text-disabled);
+
+  /* Card Component */
+  --card-background: var(--color-background-primary);
+  --card-border-radius: var(--border-radius-lg);
+  --card-border: var(--border-width-thin) solid var(--color-border-light);
+  --card-padding: var(--spacing-component-lg);
+  --card-shadow: var(--shadow-sm);
+  --card-transition: var(--transition-default);
+  --card-hover-shadow: var(--shadow-md);
+  --card-hover-transform: translateY(-2px);
+  --card-header-font-size: var(--font-size-xl);
+  --card-header-font-weight: var(--font-weight-semibold);
+  --card-header-margin-bottom: var(--spacing-component-md);
+  --card-header-color: var(--color-text-primary);
+  --card-body-color: var(--color-text-secondary);
+
+  /* Input Component */
+  --input-height: 40px;
+  --input-background: var(--color-background-primary);
+  --input-color: var(--color-text-primary);
+  --input-border: var(--border-width-thin) solid var(--color-border-default);
+  --input-border-radius: var(--border-radius-md);
+  --input-padding-x: var(--spacing-component-sm);
+  --input-padding-y: var(--spacing-component-xs);
+  --input-font-size: var(--font-size-md);
+  --input-line-height: var(--line-height-default);
+  --input-transition: var(--transition-default);
+  --input-placeholder-color: var(--color-text-tertiary);
+  --input-focus-border-color: var(--color-border-focus);
+  --input-focus-shadow: 0 0 0 3px rgba(51, 133, 255, 0.15);
+  --input-disabled-background: var(--color-background-disabled);
+  --input-disabled-color: var(--color-text-disabled);
+  --input-error-border-color: var(--color-status-error);
+  --input-error-text-color: var(--color-status-error);
+  --input-success-border-color: var(--color-status-success);
+  --input-label-margin-bottom: var(--spacing-component-xxs);
+  --input-label-font-size: var(--font-size-sm);
+  --input-label-font-weight: var(--font-weight-medium);
+  --input-label-color: var(--color-text-primary);
+  --input-helper-text-font-size: var(--font-size-xs);
+  --input-helper-text-color: var(--color-text-tertiary);
+  --input-helper-text-margin-top: var(--spacing-component-xxs);
+
+  /* Modal Component */
+  --modal-background: var(--color-background-primary);
+  --modal-border-radius: var(--border-radius-lg);
+  --modal-shadow: var(--shadow-xl);
+  --modal-padding: var(--spacing-component-xl);
+  --modal-max-width: 500px;
+  --modal-max-height: 90vh;
+  --modal-header-margin-bottom: var(--spacing-component-md);
+  --modal-header-font-size: var(--font-size-xl);
+  --modal-header-font-weight: var(--font-weight-semibold);
+  --modal-header-color: var(--color-text-primary);
+  --modal-body-color: var(--color-text-secondary);
+  --modal-footer-margin-top: var(--spacing-component-lg);
+  --modal-footer-justify-content: flex-end;
+  --modal-footer-gap: var(--spacing-component-sm);
+  --modal-backdrop-background: rgba(0, 0, 0, 0.5);
+  --modal-backdrop-z-index: var(--z-index-modal);
+  --modal-z-index: calc(var(--z-index-modal) + 10);
+  --modal-transition: var(--transition-default);
+  --modal-close-button-size: 32px;
+  --modal-close-button-color: var(--color-text-tertiary);
+  --modal-close-button-hover-color: var(--color-text-primary);
+
+  /* Tooltip Component */
+  --tooltip-background: var(--color-gray-900);
+  --tooltip-color: var(--color-text-inverse);
+  --tooltip-border-radius: var(--border-radius-sm);
+  --tooltip-padding-x: var(--spacing-component-xs);
+  --tooltip-padding-y: var(--spacing-component-xxs);
+  --tooltip-font-size: var(--font-size-xs);
+  --tooltip-max-width: 300px;
+  --tooltip-z-index: var(--z-index-tooltip);
+  --tooltip-shadow: var(--shadow-md);
+  --tooltip-transition: opacity 0.2s ease-in-out;
+  --tooltip-arrow-size: 5px;
+  --tooltip-offset: 8px;
+
+  /* Alert Component */
+  --alert-padding: var(--spacing-component-md);
+  --alert-border-radius: var(--border-radius-md);
+  --alert-border-width: var(--border-width-thin);
+  --alert-font-size: var(--font-size-md);
+  --alert-margin-bottom: var(--spacing-component-md);
+  --alert-icon-margin-right: var(--spacing-component-sm);
+  --alert-transition: var(--transition-default);
+  
+  /* Alert variants */
+  --alert-info-background: var(--color-status-info-light);
+  --alert-info-border-color: var(--color-status-info);
+  --alert-info-color: var(--color-status-info);
+  --alert-success-background: var(--color-status-success-light);
+  --alert-success-border-color: var(--color-status-success);
+  --alert-success-color: var(--color-status-success);
+  --alert-warning-background: var(--color-status-warning-light);
+  --alert-warning-border-color: var(--color-status-warning);
+  --alert-warning-color: var(--color-status-warning);
+  --alert-error-background: var(--color-status-error-light);
+  --alert-error-border-color: var(--color-status-error);
+  --alert-error-color: var(--color-status-error);
+
+  /* Avatar Component */
+  --avatar-background: var(--color-background-tertiary);
+  --avatar-color: var(--color-text-primary);
+  --avatar-border-radius: var(--border-radius-full);
+  --avatar-font-weight: var(--font-weight-medium);
+  --avatar-transition: var(--transition-default);
+  
+  /* Avatar sizes */
+  --avatar-size-xs: 24px;
+  --avatar-size-sm: 32px;
+  --avatar-size-md: 40px;
+  --avatar-size-lg: 48px;
+  --avatar-size-xl: 64px;
+  
+  --avatar-font-size-xs: var(--font-size-xs);
+  --avatar-font-size-sm: var(--font-size-sm);
+  --avatar-font-size-md: var(--font-size-md);
+  --avatar-font-size-lg: var(--font-size-lg);
+  --avatar-font-size-xl: var(--font-size-xl);
+  
+  --avatar-border: var(--border-width-thin) solid var(--color-border-light);
+  --avatar-border-hover: var(--border-width-thin) solid var(--color-border-default);
+
+  /* Badge Component */
+  --badge-font-size: var(--font-size-xs);
+  --badge-font-weight: var(--font-weight-medium);
+  --badge-padding-x: var(--spacing-component-xs);
+  --badge-padding-y: var(--spacing-component-xxs);
+  --badge-border-radius: var(--border-radius-full);
+  
+  /* Badge variants */
+  --badge-primary-background: var(--color-brand-primary);
+  --badge-primary-color: var(--color-text-inverse);
+  --badge-secondary-background: var(--color-gray-200);
+  --badge-secondary-color: var(--color-text-secondary);
+  --badge-success-background: var(--color-status-success);
+  --badge-success-color: var(--color-text-inverse);
+  --badge-warning-background: var(--color-status-warning);
+  --badge-warning-color: var(--color-gray-900);
+  --badge-error-background: var(--color-status-error);
+  --badge-error-color: var(--color-text-inverse);
+  --badge-info-background: var(--color-status-info);
+  --badge-info-color: var(--color-text-inverse);
+}
