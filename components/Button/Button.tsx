@@ -1,6 +1,5 @@
 import React from 'react';
 import { components } from '../../styles/tokens';
-import './Button.css';
 
 export interface ButtonProps {
   /**
