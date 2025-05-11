@@ -1,34 +1,122 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Design System Toolkit
 
-## Getting Started
+A comprehensive test project for streamlining design systems, design tokens, Storybook, and Chromatic integration.
 
-First, run the development server:
+![Design System Toolkit](https://via.placeholder.com/800x400?text=Design+System+Toolkit)
+
+## 🚀 Overview
+
+This project serves as a test environment and reference implementation for building scalable design systems with modern tools and workflows. It demonstrates how to:
+
+- Implement and manage design tokens
+- Create reusable UI components
+- Document components with Storybook
+- Test visual regression with Chromatic
+- Establish a streamlined workflow for designers and developers
+
+## ✨ Features
+
+- **Design Token System**: Centralized design variables using Style Dictionary
+- **Component Library**: Reusable React components built with TypeScript
+- **Storybook Integration**: Interactive component documentation and testing
+- **Chromatic Testing**: Visual regression testing and review workflows
+- **Modern Stack**: Next.js, React, TypeScript, and CSS Modules
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [React](https://reactjs.org/) - UI library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Storybook](https://storybook.js.org/) - Component documentation
+- [Style Dictionary](https://amzn.github.io/style-dictionary/) - Design token management
+- [Chromatic](https://www.chromatic.com/) - Visual testing platform
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/supremeb/storybook-tutorial.git
+cd storybook-tutorial
+
+# Install dependencies
+npm install
+# or
+yarn install
+```
+
+### Development
+
+```bash
+# Run the Next.js development server
 npm run dev
 # or
 yarn dev
+
+# Run Storybook
+npm run storybook
+# or
+yarn storybook
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📚 Available Scripts
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- `npm run dev` - Start Next.js development server
+- `npm run build` - Build the Next.js application
+- `npm run storybook` - Start Storybook locally
+- `npm run build-storybook` - Build Storybook for deployment
+- `npm run chromatic` - Run Chromatic visual tests
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 🧩 Component Library
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The component library includes:
 
-## Learn More
+- **Buttons**: Various button styles and states
+- **Inputs**: Form input components
+- **Alerts**: Notification components
+- **Modal**: Dialog components
+- **Typography**: Text components with consistent styling
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Design Tokens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Design tokens are stored in the `src/styles` directory and are transformed using Style Dictionary. These tokens define:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Colors
+- Typography
+- Spacing
+- Shadows
+- Borders
+- Z-indices
 
-## Deploy on Vercel
+## 📖 Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Additional documentation is available in the `docs` directory:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Design System Guide](./docs/design-system-guide.md)
+- Component documentation in Storybook
+
+## 🧪 Testing
+
+- **Component Testing**: Each component includes stories for testing in Storybook
+- **Visual Regression**: Chromatic is used to detect visual changes
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgements
+
+- [Storybook](https://storybook.js.org/)
+- [Chromatic](https://www.chromatic.com/)
+- [Style Dictionary](https://amzn.github.io/style-dictionary/)
+- [Next.js](https://nextjs.org/)
